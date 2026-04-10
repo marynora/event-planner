@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export const EventsPage = () => {
   const [events, setEvents] = useState([]);
@@ -33,7 +34,11 @@ const getCategoryNames = (categoryIds) => {
       <Heading mb={6}>List of events</Heading>
 
       {events.map((event) => (
-        <Box key={event.id} mb={8} p={4} borderWidth="1px" borderRadius="md">
+        <Link
+          key={event.id}
+          to={`/event/${event.id}`}
+          >
+        <Box mb={8} p={4} borderWidth="1px" borderRadius="md">
           <Image
             src={event.image}
             alt={event.title}
@@ -73,6 +78,7 @@ const getCategoryNames = (categoryIds) => {
             Categories: {getCategoryNames(event.categoryIds).join(", ")}
           </Text>
         </Box>
+        </Link>
       ))}
     </Box>
   );

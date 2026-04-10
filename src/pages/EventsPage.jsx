@@ -49,8 +49,26 @@ const getCategoryNames = (categoryIds) => {
           </Heading>
 
           <Text mb={2}>{event.description}</Text>
-          <Text mb={1}>Start: {event.startTime}</Text>
-          <Text mb={2}>End: {event.endTime}</Text>
+          <Text mb={1}>
+            Start: {""}
+            {new Date(event.startTime).toLocaleString("nl-NL", {
+              day: "2-digit",
+              month: "numeric",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </Text>
+          <Text mb={2}>
+            End: {""}
+            {new Date (event.endTime).toLocaleString("nl-NL", {
+              day: "2-digit",
+              month: "numeric",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+             })}
+            </Text>
           <Text>
             Categories: {getCategoryNames(event.categoryIds).join(", ")}
           </Text>

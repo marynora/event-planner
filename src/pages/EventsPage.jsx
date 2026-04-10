@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Text } from "@chakra-ui/react";
 
 export const EventsPage = () => {
   const [events, setEvents] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -11,15 +12,49 @@ export const EventsPage = () => {
       setEvents(data);
     };
 
+    const fetchCategories = async () => {
+        const response = await fetch("http://localhost:3000/categories");
+        const data = await response.json();
+        setCategories(data);
+    };
+
     fetchEvents();
+    fetchCategories();
   }, []);
+
+const getCategoryNames = (categoryIds) => {
+  return categories
+    .filter((category) => categoryIds.includes(category.id))
+    .map((category) => category.name);
+};
 
   return (
     <Box>
       <Heading mb={6}>List of events</Heading>
 
       {events.map((event) => (
-        <Text key={event.id}>{event.title}</Text>
+        <Box key={event.id} mb={8} p={4} borderWidth="1px" borderRadius="md">
+          <Image
+            src={event.image}
+            alt={event.title}
+            mb={4}
+            borderRadius="md"
+            maxH="250px"
+            objectFit="cover"
+            w="100%"
+          />
+
+          <Heading size="md" mb={2}>
+            {event.title}
+          </Heading>
+
+          <Text mb={2}>{event.description}</Text>
+          <Text mb={1}>Start: {event.startTime}</Text>
+          <Text mb={2}>End: {event.endTime}</Text>
+          <Text>
+            Categories: {getCategoryNames(event.categoryIds).join(", ")}
+          </Text>
+        </Box>
       ))}
     </Box>
   );

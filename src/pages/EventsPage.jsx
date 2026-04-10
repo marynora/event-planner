@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Input, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export const EventsPage = () => {
   const [events, setEvents] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -29,25 +30,33 @@ const getCategoryNames = (categoryIds) => {
     .map((category) => category.name);
 };
 
+const filteredEvents = events.filter((event) =>
+  event.title.toLowerCase().includes(searchTerm.toLowerCase()),
+);
+
   return (
     <Box>
       <Heading mb={6}>List of events</Heading>
 
-      {events.map((event) => (
-        <Link
-          key={event.id}
-          to={`/event/${event.id}`}
-          >
-        <Box mb={8} p={4} borderWidth="1px" borderRadius="md">
-          <Image
-            src={event.image}
-            alt={event.title}
-            mb={4}
-            borderRadius="md"
-            maxH="250px"
-            objectFit="cover"
-            w="100%"
-          />
+      <Input
+        mb={6}
+        placeholder="Search events..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+
+      {filteredEvents.map((event) => (
+        <Link key={event.id} to={`/event/${event.id}`}>
+          <Box mb={8} p={4} borderWidth="1px" borderRadius="md">
+            <Image
+              src={event.image}
+              alt={event.title}
+              mb={4}
+              borderRadius="md"
+              maxH="250px"
+              objectFit="cover"
+              w="100%"
+            />
 
           <Heading size="md" mb={2}>
             {event.title}

@@ -97,7 +97,7 @@ export const EventsPage = () => {
            position="relative"
            h={{ base: "70vh", md: "100vh" }}
            overflow="hidden"
-           mb={{ base: 12, md: 20 }}
+           mb={0}
          >
            <Image
              src="https://plus.unsplash.com/premium_vector-1711987817831-55bfbf7200a6?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"

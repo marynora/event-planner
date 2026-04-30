@@ -221,169 +221,170 @@ export const EventsPage = () => {
              left="0"
              right="0"
              height="350px"
-             background="linear-gradient(to bottom, transparent 0%, rgba(181, 130, 88, 0.7) 55%, #916348 100%)"
+             background="linear-gradient(to bottom, transparent 0%, rgba(145, 99, 72, 0.85) 65%, #916348 100%)"
              pointerEvents="none"
              zIndex="5"
            />
          </Box>
 
-       <Box ref={eventsRef} maxW="1500px" mx="auto">
-         <VStack
-           gap={{ base: 16, md: 28, lg: 32 }}
-           px={{ base: 6, md: 12 }}
-           pb={{ base: 12, md: 20 }}
-           align="stretch"
-         >
-           {loading ? (
-             Array.from({ length: 3 }).map((_, index) => {
-               const isEven = index % 2 === 0;
+         <Box ref={eventsRef} maxW="1500px" mx="auto">
+           <VStack
+             gap={{ base: 16, md: 28, lg: 32 }}
+             px={{ base: 6, md: 12 }}
+             pb={{ base: 12, md: 20 }}
+             align="stretch"
+           >
+             {loading ? (
+               Array.from({ length: 3 }).map((_, index) => {
+                 const isEven = index % 2 === 0;
 
-               return(
-               <Flex
-                 key={index}
-                 direction={{ 
-                  base: "column", 
-                  md: isEven ? "row" : "row-reverse",
-                 }}
-                 gap={{ base: 8, md: 10, lg: 12 }}
-                 align="center"
-                 justify="center"
-               >
-                 <Box flex="1" display="flex" justifyContent="center">
-                 <Skeleton
-                   height={{ base: "240px", md: "320px", lg:"360px"}}
-                   width={{ base: "100%", md: "560px", lg:"620px" }}
-                 />
-                 </Box>
-
-                 <Flex flex="1" justify="center" align="center">
-                  <Box maxW="500px" w="100%">
-                   <Skeleton height="70px" mb={4} />
-                   <Skeleton height="24px" mb={7} />
-
-                   <Skeleton height="30px" mb={3} />
-                   <Skeleton height="30px" mb={3} />
-                   <Skeleton height="30px" mb={4}/>
-                   
-                   <Skeleton height="28px" width="90px" />
-                  </Box> 
-                </Flex>
-              </Flex>
-             );
-            })
-           ) : filteredEvents.length > 0 ? (
-             filteredEvents.map((event, index) => {
-               const isEven = index % 2 === 0;
-               const categoryNames = getCategoryNames(event.categoryIds);
-
-               return (
-                 <Link
-                   key={event.id}
-                   to={`/event/${event.id}`}
-                   onClick={() =>
-                     window.scrollTo({ top: 0, behavior: "smooth" })
-                   }
-                 >
+                 return (
                    <Flex
+                     key={index}
                      direction={{
                        base: "column",
                        md: isEven ? "row" : "row-reverse",
                      }}
+                     gap={{ base: 8, md: 10, lg: 12 }}
                      align="center"
                      justify="center"
-                     gap={{ base: 8, md: 10, lg: 12 }}
                    >
                      <Box flex="1" display="flex" justifyContent="center">
-                       <Image
-                         src={event.image}
-                         alt={event.title}
-                         w={{ base: "100%", md: "560px", lg: "620px" }}
-                         h={{ base: "240px", md: "320px", lg: "360px" }}
-                         objectFit="cover"
+                       <Skeleton
+                         height={{ base: "240px", md: "320px", lg: "360px" }}
+                         width={{ base: "100%", md: "560px", lg: "620px" }}
                        />
                      </Box>
 
                      <Flex flex="1" justify="center" align="center">
                        <Box maxW="500px" w="100%">
-                         <Heading
-                           fontFamily="'Italiana', sans-serif"
-                           fontWeight="bold"
-                           fontStyle="normal"
-                           fontSize="6xl"
-                           lineHeight="1"
-                           color="#FFFEAE"
-                         >
-                           {event.title}
-                         </Heading>
+                         <Skeleton height="70px" mb={4} />
+                         <Skeleton height="24px" mb={7} />
 
-                         <Text
-                           fontFamily="'Thasadith', sans-serif"
-                           fontWeight="bold"
-                           fontSize={{ base: "lg", md: "xl" }}
-                           color="white"
-                           lineHeight="1.8"
-                           mb={7}
-                         >
-                           {event.description}
-                         </Text>
+                         <Skeleton height="30px" mb={3} />
+                         <Skeleton height="30px" mb={3} />
+                         <Skeleton height="30px" mb={4} />
 
-                         <Text
-                           fontFamily="'Thasadith', sans-serif"
-                           fontWeight="medium"
-                           fontSize={{ base: "xl", md: "2xl" }}
-                           color="white"
-                           mb={2}
-                         >
-                           <strong>From:</strong> {formatDate(event.startTime)}{" "}
-                           at {formatTime(event.startTime)}
-                         </Text>
-
-                         <Text
-                           fontFamily="'Thasadith', sans-serif"
-                           fontWeight="medium"
-                           fontSize={{ base: "xl", md: "2xl" }}
-                           color="white"
-                           mb={2}
-                         >
-                           <strong>To:</strong> {formatDate(event.endTime)} at{" "}
-                           {formatTime(event.endTime)}
-                         </Text>
-
-                         <Text
-                           fontFamily="'Thasadith', sans-serif"
-                           fontWeight="medium"
-                           fontSize={{ base: "xl", md: "2xl" }}
-                           color="white"
-                           mb={4}
-                         >
-                           <strong>Location:</strong> {event.location}
-                         </Text>
-
-                         <HStack gap={2} wrap="wrap">
-                           {categoryNames.map((categoryName) => (
-                             <Box
-                               key={categoryName}
-                               px={3}
-                               py={1}
-                               border="1px solid"
-                               bg="rgba(250, 236, 199, 0.26)"
-                               borderColor="#c4beb604"
-                               letterSpacing="1px"
-                               textTransform="uppercase"
-                               fontSize="xs"
-                               fontFamily="'Thasadith', sans-serif"
-                               fontWeight="bold"
-                               color="white"
-                             >
-                               {categoryName}
-                             </Box>
-                           ))}
-                         </HStack>
+                         <Skeleton height="28px" width="90px" />
                        </Box>
                      </Flex>
                    </Flex>
-                 </Link>
-               );
+                 );
+               })
+             ) : filteredEvents.length > 0 ? (
+               filteredEvents.map((event, index) => {
+                 const isEven = index % 2 === 0;
+                 const categoryNames = getCategoryNames(event.categoryIds);
+
+                 return (
+                   <Link
+                     key={event.id}
+                     to={`/event/${event.id}`}
+                     onClick={() =>
+                       window.scrollTo({ top: 0, behavior: "smooth" })
+                     }
+                   >
+                     <Flex
+                       direction={{
+                         base: "column",
+                         md: isEven ? "row" : "row-reverse",
+                       }}
+                       align="center"
+                       justify="center"
+                       gap={{ base: 8, md: 10, lg: 12 }}
+                     >
+                       <Box flex="1" display="flex" justifyContent="center">
+                         <Image
+                           src={event.image}
+                           alt={event.title}
+                           w={{ base: "100%", md: "560px", lg: "620px" }}
+                           h={{ base: "240px", md: "320px", lg: "360px" }}
+                           objectFit="cover"
+                         />
+                       </Box>
+
+                       <Flex flex="1" justify="center" align="center">
+                         <Box maxW="500px" w="100%">
+                           <Heading
+                             fontFamily="'Italiana', sans-serif"
+                             fontWeight="bold"
+                             fontStyle="normal"
+                             fontSize="6xl"
+                             lineHeight="1"
+                             color="#FFFEAE"
+                           >
+                             {event.title}
+                           </Heading>
+
+                           <Text
+                             fontFamily="'Thasadith', sans-serif"
+                             fontWeight="bold"
+                             fontSize={{ base: "lg", md: "xl" }}
+                             color="white"
+                             lineHeight="1.8"
+                             mb={7}
+                           >
+                             {event.description}
+                           </Text>
+
+                           <Text
+                             fontFamily="'Thasadith', sans-serif"
+                             fontWeight="medium"
+                             fontSize={{ base: "xl", md: "2xl" }}
+                             color="white"
+                             mb={2}
+                           >
+                             <strong>From:</strong>{" "}
+                             {formatDate(event.startTime)} at{" "}
+                             {formatTime(event.startTime)}
+                           </Text>
+
+                           <Text
+                             fontFamily="'Thasadith', sans-serif"
+                             fontWeight="medium"
+                             fontSize={{ base: "xl", md: "2xl" }}
+                             color="white"
+                             mb={2}
+                           >
+                             <strong>To:</strong> {formatDate(event.endTime)} at{" "}
+                             {formatTime(event.endTime)}
+                           </Text>
+
+                           <Text
+                             fontFamily="'Thasadith', sans-serif"
+                             fontWeight="medium"
+                             fontSize={{ base: "xl", md: "2xl" }}
+                             color="white"
+                             mb={4}
+                           >
+                             <strong>Location:</strong> {event.location}
+                           </Text>
+
+                           <HStack gap={2} wrap="wrap">
+                             {categoryNames.map((categoryName) => (
+                               <Box
+                                 key={categoryName}
+                                 px={3}
+                                 py={1}
+                                 border="1px solid"
+                                 bg="rgba(250, 236, 199, 0.26)"
+                                 borderColor="#c4beb604"
+                                 letterSpacing="1px"
+                                 textTransform="uppercase"
+                                 fontSize="xs"
+                                 fontFamily="'Thasadith', sans-serif"
+                                 fontWeight="bold"
+                                 color="white"
+                               >
+                                 {categoryName}
+                               </Box>
+                             ))}
+                           </HStack>
+                         </Box>
+                       </Flex>
+                     </Flex>
+                   </Link>
+                 );
                })
              ) : (
                <Box py={10}>

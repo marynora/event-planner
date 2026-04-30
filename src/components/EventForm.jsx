@@ -6,10 +6,10 @@ import {
   Field,
   Fieldset,
   Input,
+  Text,
   Textarea,
   VStack,
 } from "@chakra-ui/react";
-import { toaster } from "../components/ui/toaster";
 import { useEvents } from "../context/EventsContext";
 
 export const EventForm = ({
@@ -22,28 +22,30 @@ export const EventForm = ({
   const [title, setTitle] = useState(initialData.title || "");
   const [description, setDescription] = useState(initialData.description || "");
   const [image, setImage] = useState(initialData.image || "");
+  const [location, setLocation] = useState(initialData.location || "");
   const [startTime, setStartTime] = useState(initialData.startTime || "");
   const [endTime, setEndTime] = useState(initialData.endTime || "");
   const [categoryIds, setCategoryIds] = useState(
     initialData.categoryIds?.map(String) || [],
   );
 
+const [categoryError, setCategoryError] = useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (categoryIds.length === 0) {
-      toaster.create({
-        title: "Please select at least one category.",
-        type: "error",
-      });
-      return;
-    }
+  if (categoryIds.length === 0) {
+    setCategoryError(true);
+    return;
+  }
+  setCategoryError(false);
 
     onSubmit({
       ...initialData,
       title,
       description,
       image,
+      location,
       startTime,
       endTime,
       categoryIds: categoryIds.map(Number),
@@ -104,6 +106,21 @@ export const EventForm = ({
             fontSize="lg"
             fontWeight="bold"
           >
+            Location
+          </Field.Label>
+          <Input
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            required
+          />
+        </Field.Root>
+
+        <Field.Root required>
+          <Field.Label
+            fontFamily="'Italiana', sans-serif"
+            fontSize="lg"
+            fontWeight="bold"
+          >
             Start time
           </Field.Label>
           <Input
@@ -140,7 +157,15 @@ export const EventForm = ({
             Categories
           </Fieldset.Legend>
 
-          <CheckboxGroup value={categoryIds} onValueChange={setCategoryIds}>
+          <CheckboxGroup
+            value={categoryIds}
+            onValueChange={(value) => {
+              setCategoryIds(value);
+              if (value.length > 0) {
+                setCategoryError(false);
+              }
+            }}
+          >
             <VStack
               align="start"
               gap={2}
@@ -167,6 +192,18 @@ export const EventForm = ({
               ))}
             </VStack>
           </CheckboxGroup>
+
+          {categoryError && (
+            <Text
+              color="#950000"
+              fontFamily="'Thasadith', sans-serif"
+              fontWeight="bold"
+              fontSize="lg"
+            >
+              {" "}
+              Please select at least one category.{" "}
+            </Text>
+          )}
         </Fieldset.Root>
 
         <Button

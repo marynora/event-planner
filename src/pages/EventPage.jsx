@@ -58,14 +58,20 @@ export const EventPage = () => {
             />
             <Box flex="1" w="100%">
               <Skeleton height="70px" mb={4} />
-              <Skeleton height="24px" mb={3} />
-              <Skeleton height="24px" mb={3} />
-              <Skeleton height="24px" mb={6} />
-              <Skeleton height="28px" mb={3} />
-              <Skeleton height="28px" mb={6} />
-              <HStack gap={2}>
+              <Skeleton height="24px" mb={8} />
+
+              <Skeleton height="30px" mb={3} />
+              <Skeleton height="30px" mb={3} />
+              <Skeleton height="30px" mb={6} />
+
+              <HStack gap={2} mb={8}>
                 <Skeleton height="30px" width="90px" />
                 <Skeleton height="30px" width="110px" />
+              </HStack>
+
+              <HStack gap={3}>
+                <Skeleton height="44px" width="120px" />
+                <Skeleton height="44px" width="140px" />
               </HStack>
             </Box>
           </Flex>
@@ -111,7 +117,7 @@ export const EventPage = () => {
       bgImage="url('/gradientbg.jpg')"
       bgSize="cover"
       bgPosition="center"
-      bgRepeat="no-repeat" /*="#916348"*/
+      bgRepeat="no-repeat"
     >
       <Box pb={{ base: 10, md: 14 }}>
         <Box position="absolute" inset="0" bg="rgba(40, 20, 0, 0.2)" />
@@ -122,6 +128,7 @@ export const EventPage = () => {
             align="center"
             justify="center"
             px={{ base: 6, md: 12 }}
+            pt={{ base: 20, md: 10 }}
           >
             <Box maxW="1500px" w="100%">
               <Flex
@@ -180,10 +187,20 @@ export const EventPage = () => {
                       fontWeight="medium"
                       fontSize={{ base: "xl", md: "2xl" }}
                       color="#fff6ee"
-                      mb={6}
+                      mb={2}
                     >
                       <strong>To:</strong> {formatDate(event.endTime)} at{" "}
                       {formatTime(event.endTime)}
+                    </Text>
+
+                    <Text
+                      fontFamily="'Thasadith', sans-serif"
+                      fontWeight="medium"
+                      fontSize={{ base: "xl", md: "2xl" }}
+                      color="#fff6ee"
+                      mb={6}
+                    >
+                      <strong>Location:</strong> {event.location}
                     </Text>
 
                     <HStack gap={2} wrap="wrap" mb={8}>

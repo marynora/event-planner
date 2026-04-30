@@ -250,31 +250,42 @@ export const EventsPage = () => {
            align="stretch"
          >
            {loading ? (
-             Array.from({ length: 3 }).map((_, index) => (
+             Array.from({ length: 3 }).map((_, index) => {
+               const isEven = index % 2 === 0;
+
+               return(
                <Flex
                  key={index}
-                 direction={{ base: "column", md: "row" }}
-                 gap={{ base: 8, md: 10 }}
+                 direction={{ 
+                  base: "column", 
+                  md: isEven ? "row" : "row-reverse",
+                 }}
+                 gap={{ base: 8, md: 10, lg: 12 }}
                  align="center"
+                 justify="center"
                >
+                 <Box flex="1" display="flex" justifyContent="center">
                  <Skeleton
-                   height={{ base: "240px", md: "320px" }}
-                   width={{ base: "100%", md: "560px" }}
-                   borderRadius="md"
+                   height={{ base: "240px", md: "320px", lg:"360px"}}
+                   width={{ base: "100%", md: "560px", lg:"620px" }}
                  />
-                 <Box flex="1" w="100%">
-                   <Skeleton height="60px" mb={4} />
-                   <Skeleton height="24px" mb={3} />
-                   <Skeleton height="24px" mb={3} />
-                   <Skeleton height="24px" mb={6} />
-                   <HStack gap={2}>
-                     <Skeleton height="28px" width="90px" />
-                     <Skeleton height="28px" width="110px" />
-                     <Skeleton height="28px" width="80px" />
-                   </HStack>
                  </Box>
-               </Flex>
-             ))
+
+                 <Flex flex="1" justify="center" align="center">
+                  <Box maxW="500px" w="100%">
+                   <Skeleton height="70px" mb={4} />
+                   <Skeleton height="24px" mb={7} />
+
+                   <Skeleton height="30px" mb={3} />
+                   <Skeleton height="30px" mb={3} />
+                   <Skeleton height="30px" mb={4}/>
+                   
+                   <Skeleton height="28px" width="90px" />
+                  </Box> 
+                </Flex>
+              </Flex>
+             );
+            })
            ) : filteredEvents.length > 0 ? (
              filteredEvents.map((event, index) => {
                const isEven = index % 2 === 0;

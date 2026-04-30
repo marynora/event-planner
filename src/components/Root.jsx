@@ -31,6 +31,7 @@ export const Root = () => {
       <Dialog.Root
         open={open}
         onOpenChange={(details) => !details.open && onClose()}
+        closeOnInteractOutside={false}
       >
         <Portal>
           <Dialog.Backdrop />

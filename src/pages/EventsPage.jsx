@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { FaArrowUp } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { formatDate, formatTime } from "../utils/events";
 import { useEvents } from "../context/EventsContext";
 
 export const EventsPage = () => {
@@ -85,22 +86,6 @@ export const EventsPage = () => {
 
     return matchesSearch && matchesCategories;
   });
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      weekday: "long",
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
-  const formatTime = (dateString) => {
-    return new Date(dateString).toLocaleTimeString("nl-NL", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
 
  return (
    <Box minH="100vh" position="relative" bg="#916348">

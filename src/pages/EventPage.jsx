@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { useEvents } from "../context/EventsContext";
 import { EventForm } from "../components/EventForm";
+import { formatDate, formatTime } from "../utils/events";
 
 
 export const EventPage = () => {
@@ -26,22 +27,6 @@ export const EventPage = () => {
   const [deleteOpen, setDeleteOpen] = useState(false);
 
   const event = events.find((item) => String(item.id) === eventId);
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString("en-US", {
-      weekday: "long",
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
-
-  const formatTime = (dateString) => {
-    return new Date(dateString).toLocaleTimeString("nl-NL", {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
 
   if (loading) {
     return (

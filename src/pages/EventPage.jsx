@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
@@ -25,6 +25,14 @@ export const EventPage = () => {
 
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
+
+  // waarom is windowscroll hier nuttig?
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [eventId]);
 
   const event = events.find((item) => String(item.id) === eventId);
 
@@ -83,7 +91,7 @@ export const EventPage = () => {
     const success = await updateEvent(updatedData);
 
     if (success) {
-       setEditOpen(false); 
+      setEditOpen(false);
     }
   };
 

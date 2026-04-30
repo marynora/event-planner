@@ -277,7 +277,14 @@ export const EventsPage = () => {
                const categoryNames = getCategoryNames(event.categoryIds);
 
                return (
-                 <Link key={event.id} to={`/event/${event.id}`}>
+                 <Link
+                   key={event.id}
+                   to={`/event/${event.id}`}
+                   onClick={() =>
+                     window.scrollTo({ top: 0, behavior: "smooth" })
+                   }
+                 >
+                  
                    <Flex
                      direction={{
                        base: "column",
@@ -297,53 +304,51 @@ export const EventsPage = () => {
                        />
                      </Box>
 
-                       <Flex flex="1" justify="center" align="center">
-                         <Box maxW="500px" w="100%">
-                           <Heading
-                             fontFamily="'Italiana', sans-serif"
-                             fontWeight="bold"
-                             fontStyle="normal"
-                             fontSize="6xl"
-                             lineHeight="1"
-                             color="#FFFEAE"
-                           >
-                             {event.title}
-                           </Heading>
+                     <Flex flex="1" justify="center" align="center">
+                       <Box maxW="500px" w="100%">
+                         <Heading
+                           fontFamily="'Italiana', sans-serif"
+                           fontWeight="bold"
+                           fontStyle="normal"
+                           fontSize="6xl"
+                           lineHeight="1"
+                           color="#FFFEAE"
+                         >
+                           {event.title}
+                         </Heading>
 
-                           <Text
-                             fontFamily="'Thasadith', sans-serif"
-                             fontWeight="bold"
-                             fontSize={{ base: "lg", md: "xl" }}
-                             color="#fff6ee"
-                             lineHeight="1.8"
-                             mb={7}
-                           >
-                             {event.description}
-                           </Text>
+                         <Text
+                           fontFamily="'Thasadith', sans-serif"
+                           fontWeight="bold"
+                           fontSize={{ base: "lg", md: "xl" }}
+                           color="#fff6ee"
+                           lineHeight="1.8"
+                           mb={7}
+                         >
+                           {event.description}
+                         </Text>
 
-                           <Text
-                             fontFamily="'Thasadith', sans-serif"
-                             fontWeight="medium"
-                             fontSize={{ base: "xl", md: "2xl" }}
-                             color="#fff6ee"
-                             mb={2}
-                           >
-                             <strong>From:</strong>{" "}
-                             {formatDate(event.startTime)} at{" "}
-                             {formatTime(event.startTime)}
-                           </Text>
+                         <Text
+                           fontFamily="'Thasadith', sans-serif"
+                           fontWeight="medium"
+                           fontSize={{ base: "xl", md: "2xl" }}
+                           color="#fff6ee"
+                           mb={2}
+                         >
+                           <strong>From:</strong> {formatDate(event.startTime)}{" "}
+                           at {formatTime(event.startTime)}
+                         </Text>
 
-                           <Text
-                             fontFamily="'Thasadith', sans-serif"
-                             fontWeight="medium"
-                             fontSize={{ base: "xl", md: "2xl" }}
-                             color="#fff6ee"
-                             mb={2}
-                           >
-                             <strong>To:</strong>{" "}
-                             {formatDate(event.endTime)} at{" "}
-                             {formatTime(event.endTime)}
-                           </Text>
+                         <Text
+                           fontFamily="'Thasadith', sans-serif"
+                           fontWeight="medium"
+                           fontSize={{ base: "xl", md: "2xl" }}
+                           color="#fff6ee"
+                           mb={2}
+                         >
+                           <strong>To:</strong> {formatDate(event.endTime)} at{" "}
+                           {formatTime(event.endTime)}
+                         </Text>
 
                          <Text
                            fontFamily="'Thasadith', sans-serif"
@@ -355,31 +360,31 @@ export const EventsPage = () => {
                            <strong>Location:</strong> {event.location}
                          </Text>
 
-                           <HStack gap={2} wrap="wrap">
-                             {categoryNames.map((categoryName) => (
-                               <Box
-                                 key={categoryName}
-                                 px={3}
-                                 py={1}
-                                 border="1px solid"
-                                 bg="rgba(250, 236, 199, 0.26)"
-                                 borderColor="#c4beb604"
-                                 letterSpacing="1px"
-                                 textTransform="uppercase"
-                                 fontSize="xs"
-                                 fontFamily="'Thasadith', sans-serif"
-                                 fontWeight="bold"
-                                 color="#fff6ee"
-                               >
-                                 {categoryName}
-                               </Box>
-                             ))}
-                           </HStack>
-                         </Box>
-                       </Flex>
+                         <HStack gap={2} wrap="wrap">
+                           {categoryNames.map((categoryName) => (
+                             <Box
+                               key={categoryName}
+                               px={3}
+                               py={1}
+                               border="1px solid"
+                               bg="rgba(250, 236, 199, 0.26)"
+                               borderColor="#c4beb604"
+                               letterSpacing="1px"
+                               textTransform="uppercase"
+                               fontSize="xs"
+                               fontFamily="'Thasadith', sans-serif"
+                               fontWeight="bold"
+                               color="#fff6ee"
+                             >
+                               {categoryName}
+                             </Box>
+                           ))}
+                         </HStack>
+                       </Box>
                      </Flex>
-                   </Link>
-                 );
+                   </Flex>
+                 </Link>
+               );
                })
              ) : (
                <Box py={10}>

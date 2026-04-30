@@ -107,7 +107,6 @@ export const EventsPage = () => {
      minH="100vh"
      position="relative"
      bgImage="url('/gradientbg.jpg')"
-     alt="gradient background"
      bgSize="cover"
      bgPosition="center"
      bgRepeat="no-repeat"
@@ -343,10 +342,20 @@ export const EventsPage = () => {
                            fontWeight="medium"
                            fontSize={{ base: "xl", md: "2xl" }}
                            color="#fff6ee"
-                           mb={4}
+                           mb={2}
                          >
                            <strong>To:</strong> {formatDate(event.endTime)} at{" "}
                            {formatTime(event.endTime)}
+                         </Text>
+
+                         <Text
+                           fontFamily="'Thasadith', sans-serif"
+                           fontWeight="medium"
+                           fontSize={{ base: "xl", md: "2xl" }}
+                           color="#fff6ee"
+                           mb={4}
+                         >
+                           <strong>Location:</strong> {event.location}
                          </Text>
 
                          <HStack gap={2} wrap="wrap">

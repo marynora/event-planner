@@ -1,5 +1,11 @@
 import { Outlet } from "react-router-dom";
-import { Box, Dialog, Portal, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  CloseButton,
+  Dialog,
+  Portal,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { Navigation } from "./Navigation";
 import { EventForm } from "./EventForm";
 import { useEvents } from "../context/EventsContext";
@@ -29,13 +35,13 @@ export const Root = () => {
         <Portal>
           <Dialog.Backdrop />
           <Dialog.Positioner>
-            <Dialog.Content bg="#c9a67d" color="gray.700">
+            <Dialog.Content bg="#eacfb0" color="gray.700">
               <Dialog.Header>
                 <Dialog.Title
                   fontFamily="'Italiana', sans-serif"
                   fontSize="3xl"
                   fontWeight="bold"
-                  color="#684a29"
+                  color="gray.700"
                 >
                   Add Event
                 </Dialog.Title>
@@ -43,6 +49,9 @@ export const Root = () => {
               <Dialog.Body>
                 <EventForm onSubmit={handleAddEvent} />
               </Dialog.Body>
+              <Dialog.CloseTrigger asChild>
+                <CloseButton size="sm" />
+              </Dialog.CloseTrigger>
             </Dialog.Content>
           </Dialog.Positioner>
         </Portal>

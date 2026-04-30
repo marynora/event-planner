@@ -58,7 +58,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             Title
@@ -73,7 +73,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             Description
@@ -88,7 +88,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             Image URL
@@ -103,7 +103,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             Location
@@ -118,7 +118,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             Start time
@@ -126,6 +126,7 @@ const [categoryError, setCategoryError] = useState(false);
           <Input
             type="datetime-local"
             value={startTime}
+            fontSize="md"
             onChange={(e) => setStartTime(e.target.value)}
             required
           />
@@ -134,7 +135,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Field.Root required>
           <Field.Label
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
           >
             End time
@@ -142,6 +143,7 @@ const [categoryError, setCategoryError] = useState(false);
           <Input
             type="datetime-local"
             value={endTime}
+            fontSize="md"
             onChange={(e) => setEndTime(e.target.value)}
             required
           />
@@ -150,7 +152,7 @@ const [categoryError, setCategoryError] = useState(false);
         <Fieldset.Root>
           <Fieldset.Legend
             fontFamily="'Italiana', sans-serif"
-            fontSize="lg"
+            fontSize="xl"
             fontWeight="bold"
             mb={2}
           >
@@ -170,8 +172,6 @@ const [categoryError, setCategoryError] = useState(false);
               align="start"
               gap={2}
               fontFamily="'Thasadith', sans-serif"
-              fontSize="sm"
-              fontWeight="bold"
             >
               {categories.map((category) => (
                 <Checkbox.Root key={category.id} value={String(category.id)}>

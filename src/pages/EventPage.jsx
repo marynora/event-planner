@@ -111,7 +111,7 @@ export const EventPage = () => {
       bgImage="url('/gradientbg.jpg')"
       bgSize="cover"
       bgPosition="center"
-      bgRepeat="no-repeat"
+      bgRepeat="no-repeat" /*="#916348"*/
     >
       <Box pb={{ base: 10, md: 14 }}>
         <Box position="absolute" inset="0" bg="rgba(40, 20, 0, 0.2)" />
@@ -147,7 +147,7 @@ export const EventPage = () => {
                       fontWeight="bold"
                       lineHeight="1"
                       fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
-                      color="#ccca6d"
+                      color="#FFFEAE"
                       mb={4}
                     >
                       {event.title}
@@ -155,7 +155,7 @@ export const EventPage = () => {
 
                     <Text
                       fontFamily="'Thasadith', sans-serif"
-                      fontWeight="medium"
+                      fontWeight="bold"
                       fontSize={{ base: "lg", md: "xl" }}
                       color="#fff6ee"
                       lineHeight="1.8"

@@ -2,8 +2,7 @@ import { Box, Flex, Heading, Image, Text, VStack } from "@chakra-ui/react";
 
 export const AboutPage = () => {
   return (
-   <Box bg="#c9a67d" minH="100vh">
-       
+    <Box bg="#916348" minH="100vh">
       <VStack spacing={20} align="stretch">
         <Box
           position="relative"
@@ -36,7 +35,7 @@ export const AboutPage = () => {
           >
             <Heading
               fontFamily="'Italiana', sans-serif"
-              color="#ccca6d"
+              color="#FFFEAE"
               textShadow="0 3px 18px rgba(0,0,0,0.28)"
               fontWeight="bold"
               lineHeight="0.95"
@@ -60,6 +59,16 @@ export const AboutPage = () => {
               makes going out and connecting feel exciting again.
             </Text>
           </Flex>
+          <Box
+            position="absolute"
+            bottom="0"
+            left="0"
+            right="0"
+            height="350px"
+            background="linear-gradient(to bottom, transparent 0%, rgba(181, 130, 88, 0.7) 55%, #916348 100%)"
+            pointerEvents="none"
+            zIndex="5"
+          />
         </Box>
 
         <Flex

@@ -26,7 +26,6 @@ export const EventPage = () => {
   const [editOpen, setEditOpen] = useState(false);
   const [deleteOpen, setDeleteOpen] = useState(false);
 
-  // waarom is windowscroll hier nuttig?
   useEffect(() => {
     window.scrollTo({
       top: 0,

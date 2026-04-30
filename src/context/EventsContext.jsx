@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { toaster } from "../components/ui/toaster";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const EventsContext = createContext();
 
 export const EventsProvider = ({ children }) => {
@@ -12,8 +14,8 @@ export const EventsProvider = ({ children }) => {
     setLoading(true);
 
       try {
-    const eventsResponse = await fetch("http://localhost:3000/events");
-    const categoriesResponse = await fetch("http://localhost:3000/categories");
+    const eventsResponse = await fetch(`${API_BASE_URL}/events`);
+    const categoriesResponse = await fetch(`${API_BASE_URL}/categories`);
 
       if (!eventsResponse.ok || !categoriesResponse.ok) {
         throw new Error("Failed to fetch data");
@@ -42,7 +44,7 @@ export const EventsProvider = ({ children }) => {
 
   const addEvent = async (newEvent) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
+      const response = await fetch(`${API_BASE_URL}/events`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,7 +77,7 @@ export const EventsProvider = ({ children }) => {
   const updateEvent = async (updatedEvent) => {
     try {
       const response = await fetch(
-        `http://localhost:3000/events/${updatedEvent.id}`,
+        `${API_BASE_URL}/events/${updatedEvent.id}`,
         {
           method: "PUT",
           headers: {
@@ -109,7 +111,7 @@ export const EventsProvider = ({ children }) => {
 
   const deleteEvent = async (eventId) => {
     try {
-      const response = await fetch(`http://localhost:3000/events/${eventId}`, {
+      const response = await fetch(`${API_BASE_URL}/events/${eventId}`, {
         method: "DELETE",
       });
 

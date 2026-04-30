@@ -75,7 +75,7 @@ export const EventPage = () => {
   if (!event) {
     return (
       <Box bg="#caa377" minH="100vh" p={6}>
-        <Heading color="#fff6ee" size="md">
+        <Heading color="white" size="md">
           Event not found.
         </Heading>
       </Box>
@@ -156,7 +156,7 @@ export const EventPage = () => {
                       fontFamily="'Thasadith', sans-serif"
                       fontWeight="bold"
                       fontSize={{ base: "lg", md: "xl" }}
-                      color="#fff6ee"
+                      color="white"
                       lineHeight="1.8"
                       mb={8}
                     >
@@ -167,7 +167,7 @@ export const EventPage = () => {
                       fontFamily="'Thasadith', sans-serif"
                       fontWeight="medium"
                       fontSize={{ base: "xl", md: "2xl" }}
-                      color="#fff6ee"
+                      color="white"
                       mb={2}
                     >
                       <strong>From:</strong> {formatDate(event.startTime)} at{" "}
@@ -178,7 +178,7 @@ export const EventPage = () => {
                       fontFamily="'Thasadith', sans-serif"
                       fontWeight="medium"
                       fontSize={{ base: "xl", md: "2xl" }}
-                      color="#fff6ee"
+                      color="white"
                       mb={2}
                     >
                       <strong>To:</strong> {formatDate(event.endTime)} at{" "}
@@ -189,7 +189,7 @@ export const EventPage = () => {
                       fontFamily="'Thasadith', sans-serif"
                       fontWeight="medium"
                       fontSize={{ base: "xl", md: "2xl" }}
-                      color="#fff6ee"
+                      color="white"
                       mb={6}
                     >
                       <strong>Location:</strong> {event.location}
@@ -203,7 +203,7 @@ export const EventPage = () => {
                           py={1.5}
                           border="1px solid"
                           borderColor="#c4beb604"
-                          color="#fff6ee"
+                          color="white"
                           letterSpacing="1px"
                           textTransform="uppercase"
                           bg="rgba(250, 236, 199, 0.26)"

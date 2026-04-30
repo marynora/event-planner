@@ -137,7 +137,7 @@ export const EventsPage = () => {
                fontFamily="'Thasadith', sans-serif"
                fontWeight="bold"
                fontSize={{ base: "lg", md: "xl" }}
-               color="whiteAlpha.900"
+               color="white"
                textShadow="0 3px 18px rgba(0,0,0,0.28)"
                mb={5}
              >
@@ -158,7 +158,7 @@ export const EventsPage = () => {
                  onChange={(e) => setSearchTerm(e.target.value)}
                  onKeyDown={handleSearchKeyDown}
                  placeholder="Search events..."
-                 color="gray.700"
+                 color="black"
                  bg="rgba(255,255,255,0.58)"
                  border="1px solid"
                  borderColor="gray.300"
@@ -284,7 +284,6 @@ export const EventsPage = () => {
                      window.scrollTo({ top: 0, behavior: "smooth" })
                    }
                  >
-                  
                    <Flex
                      direction={{
                        base: "column",
@@ -321,7 +320,7 @@ export const EventsPage = () => {
                            fontFamily="'Thasadith', sans-serif"
                            fontWeight="bold"
                            fontSize={{ base: "lg", md: "xl" }}
-                           color="#fff6ee"
+                           color="white"
                            lineHeight="1.8"
                            mb={7}
                          >
@@ -332,7 +331,7 @@ export const EventsPage = () => {
                            fontFamily="'Thasadith', sans-serif"
                            fontWeight="medium"
                            fontSize={{ base: "xl", md: "2xl" }}
-                           color="#fff6ee"
+                           color="white"
                            mb={2}
                          >
                            <strong>From:</strong> {formatDate(event.startTime)}{" "}
@@ -343,7 +342,7 @@ export const EventsPage = () => {
                            fontFamily="'Thasadith', sans-serif"
                            fontWeight="medium"
                            fontSize={{ base: "xl", md: "2xl" }}
-                           color="#fff6ee"
+                           color="white"
                            mb={2}
                          >
                            <strong>To:</strong> {formatDate(event.endTime)} at{" "}
@@ -354,7 +353,7 @@ export const EventsPage = () => {
                            fontFamily="'Thasadith', sans-serif"
                            fontWeight="medium"
                            fontSize={{ base: "xl", md: "2xl" }}
-                           color="#fff6ee"
+                           color="white"
                            mb={4}
                          >
                            <strong>Location:</strong> {event.location}
@@ -374,7 +373,7 @@ export const EventsPage = () => {
                                fontSize="xs"
                                fontFamily="'Thasadith', sans-serif"
                                fontWeight="bold"
-                               color="#fff6ee"
+                               color="white"
                              >
                                {categoryName}
                              </Box>

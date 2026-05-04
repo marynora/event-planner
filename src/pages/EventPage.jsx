@@ -301,7 +301,7 @@ export const EventPage = () => {
                     <Dialog.Title
                       fontFamily="'Italiana', sans-serif"
                       fontSize="3xl"
-                      color="#684a29"
+                      color="#1f1b16"
                     >
                       Edit Event
                     </Dialog.Title>

@@ -42,7 +42,7 @@ export const Root = () => {
                   fontFamily="'Italiana', sans-serif"
                   fontSize="3xl"
                   fontWeight="bold"
-                  color="gray.700"
+                  color="#1f1b16"
                 >
                   Add Event
                 </Dialog.Title>

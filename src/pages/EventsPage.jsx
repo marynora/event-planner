@@ -158,11 +158,9 @@ export const EventsPage = () => {
                  onChange={(e) => setSearchTerm(e.target.value)}
                  onKeyDown={handleSearchKeyDown}
                  placeholder="Search events..."
-                 color="black"
-                 bg="rgba(255, 255, 255, 0.79)"
+                 bg="rgba(255, 255, 255, 0.93)"
                  border="1px solid"
                  borderColor="gray.300"
-                 backdropFilter="blur(4px)"
                  h="58px"
                  w={{ base: "100%", sm: "320px", md: "380px" }}
                />
@@ -174,8 +172,8 @@ export const EventsPage = () => {
                  fontFamily="'Thasadith', sans-serif"
                  fontWeight="medium"
                  fontSize={{ base: "lg", md: "xl" }}
-                 bg="rgba(255, 255, 255, 0.79)"
-                 color="gray.600"
+                 bg="rgba(255, 255, 255, 0.93)"
+                 color="black"
                  border="1px solid"
                  borderColor="rgba(255,255,255,0.28)"
                  backdropFilter="blur(4px)"

@@ -37,37 +37,82 @@ export const EventPage = () => {
 
   if (loading) {
     return (
-      <Box bg="#caa377" minH="100vh" p={6}>
-        <Box maxW="1500px" mx="auto" pt={{ base: 10, md: 16 }}>
-          <Flex
-            direction={{ base: "column", md: "row" }}
-            gap={{ base: 10, md: 14, lg: 20 }}
-            align="center"
-          >
-            <Skeleton
-              w={{ base: "100%", md: "560px", lg: "620px" }}
-              h={{ base: "240px", md: "320px", lg: "360px" }}
-            />
-            <Box flex="1" w="100%">
-              <Skeleton height="70px" mb={4} />
-              <Skeleton height="24px" mb={8} />
+      <Box
+        minH="100vh"
+        position="relative"
+        bgImage="url('/gradientbg.jpg')"
+        bgSize="cover"
+        bgPosition="center"
+        bgRepeat="no-repeat"
+      >
+        <Box position="absolute" inset="0" bg="rgba(40, 20, 0, 0.2)" />
 
-              <Skeleton height="30px" mb={3} />
-              <Skeleton height="30px" mb={3} />
-              <Skeleton height="30px" mb={6} />
+        <Flex
+          minH={{ base: "auto", md: "100vh" }}
+          align={{ base: "flex-start", md: "center" }}
+          justify="center"
+          px={{ base: 6, md: 12 }}
+          pt={{ base: 20, md: 10 }}
+          pb={{ base: 10, md: 0 }}
+          position="relative"
+          zIndex="1"
+        >
+          <Box maxW="1500px" w="100%">
+            <Flex
+              direction={{ base: "column", md: "row" }}
+              align={{ base: "flex-start", md: "center" }}
+              justify={{ base: "flex-start", md: "center" }}
+              gap={{ base: 10, md: 14, lg: 20 }}
+            >
+              <Box flex="1" display="flex" justifyContent="center" w="100%">
+                <Skeleton
+                  w={{ base: "100%", md: "560px", lg: "620px" }}
+                  h={{ base: "240px", md: "320px", lg: "360px" }}
+                />
+              </Box>
 
-              <HStack gap={2} mb={8}>
-                <Skeleton height="30px" width="90px" />
-                <Skeleton height="30px" width="110px" />
-              </HStack>
+              <Flex flex="1" justify="center" align="center">
+                <Box maxW="500px" w="100%">
+                  <Skeleton
+                    height={{ base: "54px", md: "80px" }}
+                    width={{ base: "260px", md: "460px" }}
+                    mb={4}
+                  />
+                  <Skeleton
+                    height="24px"
+                    width={{ base: "280px", md: "350px" }}
+                    mb={8}
+                  />
 
-              <HStack gap={3}>
-                <Skeleton height="44px" width="120px" />
-                <Skeleton height="44px" width="140px" />
-              </HStack>
-            </Box>
-          </Flex>
-        </Box>
+                  <Skeleton
+                    height="30px"
+                    width={{ base: "100%", md: "470px" }}
+                    mb={3}
+                  />
+                  <Skeleton
+                    height="30px"
+                    width={{ base: "95%", md: "430px" }}
+                    mb={3}
+                  />
+                  <Skeleton
+                    height="30px"
+                    width={{ base: "80%", md: "360px" }}
+                    mb={6}
+                  />
+
+                  <HStack gap={2} mb={8}>
+                    <Skeleton height="30px" width="90px" />
+                  </HStack>
+
+                  <HStack gap={3}>
+                    <Skeleton height="44px" width="120px" />
+                    <Skeleton height="44px" width="140px" />
+                  </HStack>
+                </Box>
+              </Flex>
+            </Flex>
+          </Box>
+        </Flex>
       </Box>
     );
   }

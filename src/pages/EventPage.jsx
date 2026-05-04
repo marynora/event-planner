@@ -37,14 +37,7 @@ export const EventPage = () => {
 
   if (loading) {
     return (
-      <Box
-        minH="100vh"
-        position="relative"
-        bgImage="url('/gradientbg.jpg')"
-        bgSize="cover"
-        bgPosition="center"
-        bgRepeat="no-repeat"
-      >
+      <Box minH="100vh" position="relative" bg="#916348">
         <Box position="absolute" inset="0" bg="rgba(40, 20, 0, 0.2)" />
 
         <Flex
@@ -148,16 +141,9 @@ export const EventPage = () => {
   };
 
   return (
-    <Box
-      minH="100vh"
-      position="relative"
-      bgImage="url('/gradientbg.jpg')"
-      bgSize="cover"
-      bgPosition="center"
-      bgRepeat="no-repeat"
-    >
+    <Box minH="100vh" position="relative" bg="#916348">
       <Box pb={{ base: 10, md: 14 }}>
-        <Box position="absolute" inset="0" bg="rgba(40, 20, 0, 0.2)" />
+        <Box position="absolute" inset="0" />
 
         <Box position="relative" zIndex="1">
           <Flex
@@ -248,10 +234,10 @@ export const EventPage = () => {
                           py={1.5}
                           border="1px solid"
                           borderColor="#c4beb604"
-                          color="white"
+                          bg="#422d1563"
+                          color="#fcf9fa"
                           letterSpacing="1px"
                           textTransform="uppercase"
-                          bg="rgba(250, 236, 199, 0.26)"
                           fontFamily="'Thasadith', sans-serif"
                           fontWeight="bold"
                           fontSize="xs"
@@ -267,12 +253,12 @@ export const EventPage = () => {
                         fontFamily="'Thasadith', sans-serif"
                         fontWeight="medium"
                         fontSize={{ base: "lg", md: "xl" }}
-                        bg="rgba(255,255,255,0.18)"
+                        bg="rgba(0, 0, 0, 0.18)"
                         color="white"
                         border="1px solid"
-                        borderColor="rgba(255,255,255,0.28)"
+                        borderColor="rgba(255,255,255,0.22)"
                         backdropFilter="blur(4px)"
-                        _hover={{ bg: "rgba(255,255,255,0.28)" }}
+                        _hover={{ bg: "rgba(0,0,0,0.28)" }}
                       >
                         Edit Event
                       </Button>
@@ -306,7 +292,7 @@ export const EventPage = () => {
               <Dialog.Backdrop bg="blackAlpha.600" />
               <Dialog.Positioner>
                 <Dialog.Content
-                  bg="#e6d3be"
+                  bg="#eacfb0"
                   color="#2a2926"
                   fontFamily={"'Thasadith', sans-serif"}
                   fontWeight="bold"
@@ -344,7 +330,7 @@ export const EventPage = () => {
             <Portal>
               <Dialog.Backdrop bg="blackAlpha.600" />
               <Dialog.Positioner>
-                <Dialog.Content bg="#ebdccc" color="#2a2926">
+                <Dialog.Content bg="#eacfb0" color="#2a2926">
                   <Dialog.Header>
                     <Dialog.Title
                       fontFamily="'Italiana', sans-serif"
@@ -370,9 +356,9 @@ export const EventPage = () => {
                       fontFamily="'Thasadith', sans-serif"
                       fontSize="md"
                       fontWeight="bold"
-                      bg="#f6efe8"
-                      _hover={{ bg: "#fcf9f6" }}
-                      variant="outline"
+                      bg="#916639"
+                      color="white"
+                      _hover={{ bg: "#9a7143" }}
                       onClick={() => setDeleteOpen(false)}
                     >
                       No

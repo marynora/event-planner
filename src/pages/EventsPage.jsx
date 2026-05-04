@@ -114,7 +114,7 @@ export const EventsPage = () => {
 
            <Flex
              position="relative"
-             zIndex="1"
+             zIndex="10"
              h="100%"
              direction="column"
              justify="center"
@@ -159,7 +159,7 @@ export const EventsPage = () => {
                  onKeyDown={handleSearchKeyDown}
                  placeholder="Search events..."
                  color="black"
-                 bg="rgba(255,255,255,0.58)"
+                 bg="rgba(255, 255, 255, 0.79)"
                  border="1px solid"
                  borderColor="gray.300"
                  backdropFilter="blur(4px)"
@@ -174,7 +174,7 @@ export const EventsPage = () => {
                  fontFamily="'Thasadith', sans-serif"
                  fontWeight="medium"
                  fontSize={{ base: "lg", md: "xl" }}
-                 bg="rgba(255,255,255,0.58)"
+                 bg="rgba(255, 255, 255, 0.79)"
                  color="gray.600"
                  border="1px solid"
                  borderColor="rgba(255,255,255,0.28)"
@@ -367,7 +367,7 @@ export const EventsPage = () => {
                                  px={3}
                                  py={1}
                                  border="1px solid"
-                                 bg="rgba(250, 236, 199, 0.26)"
+                                 bg="#422d1563"
                                  borderColor="#c4beb604"
                                  letterSpacing="1px"
                                  textTransform="uppercase"

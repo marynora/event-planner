@@ -52,7 +52,7 @@ const [categoryError, setCategoryError] = useState(false);
     });
   };
 
-  return (        
+  return (
     <form onSubmit={handleSubmit}>
       <VStack gap={4} align="stretch">
         <Field.Root required>
@@ -60,12 +60,19 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             Title
           </Field.Label>
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -75,12 +82,19 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             Description
           </Field.Label>
           <Textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -90,12 +104,19 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             Image URL
           </Field.Label>
           <Input
             value={image}
             onChange={(e) => setImage(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -105,12 +126,19 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             Location
           </Field.Label>
           <Input
             value={location}
             onChange={(e) => setLocation(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -120,6 +148,7 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             Start time
           </Field.Label>
@@ -128,6 +157,12 @@ const [categoryError, setCategoryError] = useState(false);
             value={startTime}
             fontSize="md"
             onChange={(e) => setStartTime(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -137,6 +172,7 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
           >
             End time
           </Field.Label>
@@ -145,6 +181,12 @@ const [categoryError, setCategoryError] = useState(false);
             value={endTime}
             fontSize="md"
             onChange={(e) => setEndTime(e.target.value)}
+            borderColor="#684a29"
+            color="#1f1b16"
+            _focus={{
+              borderColor: "#684a29",
+              boxShadow: "0 0 0 1px #684a29",
+            }}
             required
           />
         </Field.Root>
@@ -154,6 +196,7 @@ const [categoryError, setCategoryError] = useState(false);
             fontFamily="'Italiana', sans-serif"
             fontSize="xl"
             fontWeight="bold"
+            color="#1f1b16"
             mb={2}
           >
             Categories
@@ -168,11 +211,7 @@ const [categoryError, setCategoryError] = useState(false);
               }
             }}
           >
-            <VStack
-              align="start"
-              gap={2}
-              fontFamily="'Thasadith', sans-serif"
-            >
+            <VStack align="start" gap={2} fontFamily="'Thasadith', sans-serif">
               {categories.map((category) => (
                 <Checkbox.Root key={category.id} value={String(category.id)}>
                   <Checkbox.HiddenInput />
@@ -181,6 +220,7 @@ const [categoryError, setCategoryError] = useState(false);
                     borderColor="#684a29"
                     bg="transparent"
                     _checked={{
+                      color:"black",
                       bg: "#ad876679",
                       borderColor: "#684a29",
                     }}
@@ -217,7 +257,6 @@ const [categoryError, setCategoryError] = useState(false);
           {submitButtonText}
         </Button>
       </VStack>
-    </form> 
-   
+    </form>
   );
 };

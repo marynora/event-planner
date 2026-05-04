@@ -12,7 +12,6 @@ export const EventsProvider = ({ children }) => {
 
   const fetchData = async () => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
 
       try {
     const eventsResponse = await fetch(`${API_BASE_URL}/events`);

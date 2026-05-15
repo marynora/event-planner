@@ -161,7 +161,6 @@ export const EventsPage = () => {
                  placeholder="Search events..."
                  bg="white"
                  _placeholder={{ color: "black" }}
-                 //bg="rgba(255, 255, 255, 0.93)"
                  border="1px solid"
                  borderColor="gray.300"
                  h="58px"
@@ -254,14 +253,13 @@ export const EventsPage = () => {
                        <Skeleton
                          height={{ base: "240px", md: "320px", lg: "360px" }}
                          width="100%"
-                         //{{ base: "100%", md: "560px", lg: "620px" }}
                        />
                      </Box>
 
                      <Flex flex="1" justify="center" align="center" w="100%">
                        <Box w="100%" maxW={{ base: "100%", md: "500px" }}>
                          <Skeleton
-                           height={{ base: "150px", md: "70px" }}
+                           height={{ base: "100px", md: "70px" }}
                            mb={2}
                          />
                          <Skeleton

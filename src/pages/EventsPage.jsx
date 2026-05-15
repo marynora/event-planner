@@ -154,11 +154,14 @@ export const EventsPage = () => {
                  fontFamily="'Thasadith', sans-serif"
                  fontWeight="medium"
                  fontSize={{ base: "lg", md: "xl" }}
+                 color="black"
                  value={searchTerm}
                  onChange={(e) => setSearchTerm(e.target.value)}
                  onKeyDown={handleSearchKeyDown}
                  placeholder="Search events..."
-                 bg="rgba(255, 255, 255, 0.93)"
+                 bg="white"
+                 _placeholder={{ color: "black" }}
+                 //bg="rgba(255, 255, 255, 0.93)"
                  border="1px solid"
                  borderColor="gray.300"
                  h="58px"
@@ -244,26 +247,45 @@ export const EventsPage = () => {
                        md: isEven ? "row" : "row-reverse",
                      }}
                      gap={{ base: 8, md: 10, lg: 12 }}
-                     align="center"
+                     align={{ base: "stretch", md: "center" }}
                      justify="center"
                    >
-                     <Box flex="1" display="flex" justifyContent="center">
+                     <Box flex="1" w="100%">
                        <Skeleton
                          height={{ base: "240px", md: "320px", lg: "360px" }}
-                         width={{ base: "100%", md: "560px", lg: "620px" }}
+                         width="100%"
+                         //{{ base: "100%", md: "560px", lg: "620px" }}
                        />
                      </Box>
 
-                     <Flex flex="1" justify="center" align="center">
-                       <Box maxW="500px" w="100%">
-                         <Skeleton height="70px" mb={4} />
-                         <Skeleton height="24px" mb={7} />
+                     <Flex flex="1" justify="center" align="center" w="100%">
+                       <Box w="100%" maxW={{ base: "100%", md: "500px" }}>
+                         <Skeleton
+                           height={{ base: "150px", md: "70px" }}
+                           mb={2}
+                         />
+                         <Skeleton
+                           height={{ base: "30px", md: "24px" }}
+                           mb={7}
+                         />
 
-                         <Skeleton height="30px" mb={3} />
-                         <Skeleton height="30px" mb={3} />
-                         <Skeleton height="30px" mb={4} />
+                         <Skeleton
+                           height={{ base: "35px", md: "30px" }}
+                           mb={2}
+                         />
+                         <Skeleton
+                           height={{ base: "35px", md: "30px" }}
+                           mb={2}
+                         />
+                         <Skeleton
+                           height={{ base: "35px", md: "30px" }}
+                           mb={3}
+                         />
 
-                         <Skeleton height="28px" width="90px" />
+                         <Skeleton
+                           height={{ base: "30px", md: "28px" }}
+                           width={{ base: "80px", md: "90px" }}
+                         />
                        </Box>
                      </Flex>
                    </Flex>
